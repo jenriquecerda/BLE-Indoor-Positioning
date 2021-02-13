@@ -19,6 +19,7 @@ public class AdvertisingPacketFactoryManager {
 
     public AdvertisingPacketFactoryManager() {
         advertisingPacketFactories.add(new EddystoneAdvertisingPacketFactory());
+        advertisingPacketFactories.add(new FakeEddystoneAdvertisingPacketFactory());
         advertisingPacketFactories.add(new IBeaconAdvertisingPacketFactory());
     }
 

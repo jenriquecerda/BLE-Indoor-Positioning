@@ -3,6 +3,7 @@ package com.nexenio.bleindoorpositioning.ble.beacon;
 import com.nexenio.bleindoorpositioning.ble.advertising.AdvertisingPacket;
 import com.nexenio.bleindoorpositioning.ble.advertising.AdvertisingPacketUtil;
 import com.nexenio.bleindoorpositioning.ble.advertising.EddystoneAdvertisingPacket;
+import com.nexenio.bleindoorpositioning.ble.advertising.FakeEddystoneAdvertisingPacket;
 import com.nexenio.bleindoorpositioning.ble.advertising.IBeaconAdvertisingPacket;
 import com.nexenio.bleindoorpositioning.ble.beacon.signal.KalmanFilter;
 import com.nexenio.bleindoorpositioning.ble.beacon.signal.RssiFilter;
@@ -47,7 +48,11 @@ public abstract class Beacon<P extends AdvertisingPacket> {
         Beacon beacon = null;
         if (advertisingPacket instanceof IBeaconAdvertisingPacket) {
             beacon = new IBeacon();
-        } else if (advertisingPacket instanceof EddystoneAdvertisingPacket) {
+        }
+        else if (advertisingPacket instanceof FakeEddystoneAdvertisingPacket) {
+            beacon = new FakeEddystone();
+        }
+        else if (advertisingPacket instanceof EddystoneAdvertisingPacket) {
             beacon = new Eddystone();
         }
         return beacon;

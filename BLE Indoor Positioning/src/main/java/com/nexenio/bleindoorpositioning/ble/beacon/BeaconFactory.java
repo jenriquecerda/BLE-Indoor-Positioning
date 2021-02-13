@@ -2,6 +2,7 @@ package com.nexenio.bleindoorpositioning.ble.beacon;
 
 import com.nexenio.bleindoorpositioning.ble.advertising.AdvertisingPacket;
 import com.nexenio.bleindoorpositioning.ble.advertising.EddystoneAdvertisingPacket;
+import com.nexenio.bleindoorpositioning.ble.advertising.FakeEddystoneAdvertisingPacket;
 import com.nexenio.bleindoorpositioning.ble.advertising.IBeaconAdvertisingPacket;
 
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class BeaconFactory {
 
     public BeaconFactory() {
         beaconClasses.put(IBeaconAdvertisingPacket.class, IBeacon.class);
+        beaconClasses.put(FakeEddystoneAdvertisingPacket.class, IBeacon.class);
         beaconClasses.put(EddystoneAdvertisingPacket.class, Eddystone.class);
     }
 
